@@ -17,7 +17,7 @@ Declarar una variable se define como el momento en donde una variable es creada 
 Ejemplo:
 
  ```js
- let variableVacia
+ let emptyVariable
  ```
 
 Inicializar una variable es cuando ademas de declarar esta misma, le damos un valor inicial.
@@ -25,7 +25,7 @@ Inicializar una variable es cuando ademas de declarar esta misma, le damos un va
 Ejemplo:
 
  ```js
- const variableInicializada = '🤑'
+ const initializedVariable = '🤑'
  ```
 
 > ¿Cual es la diferencia entre sumar numeros y concatenar strings?
@@ -58,14 +58,14 @@ La respuesta es corta, el operador '+' es el que se usa para ambos propositos.
 ### 3️⃣ Traduce a código JavaScript las variables del ejemplo anterior:
 
 ```js
-const nombre = 'Jose Miguel'
-const apellido = 'Arroyave Rincón'
-const nombreDeUsuarioDePlatzi = 'Jefferson Jair' // la cuenta no es mia xd
-const edad = 14
+const name = 'Jose Miguel'
+const surname = 'Arroyave Rincón'
+const platziUsername = 'Jefferson Jair' // la cuenta no es mia xd
+const age = 14
 const email = 'codeleux@gmail.com'
-const mayorDeEdad = false
-const dineroAhorrado = 118000
-const deudas = 0
+const isAnAdult = false
+const savedMoney = 118000
+const debts = 0
 ```
 
 ### 4️⃣ Calcula e imprime las siguientes variables a partir de las variables del ejemplo anterior:
@@ -74,8 +74,8 @@ const deudas = 0
 - Dinero real (dinero ahorrado menos deudas)
 
 ```js
-const nombreCompleto = console.log(`${nombre} ${apellido}`)
-const dineroReal = console.log(dineroAhorrado - deudas)
+const fullName = console.log(`${name} ${surname}`)
+const realMoney = console.log(savedMoney - debts)
 ```
 
 ## Funciones
@@ -98,8 +98,8 @@ Un parametro es aquel que se define al momento de redactar la función.
 Ejemplo:
 
  ```js
- function saludo(parametro) {
-    console.log(`¡Hola ${parametro}!, espero que hayas tenido un buen día.`)
+ function greeting(parameter) {
+    console.log(`¡Hola ${parameter}!, espero que hayas tenido un buen día.`)
  }
  ```
 
@@ -107,13 +107,13 @@ Un argumento es aquel que escribimos sobre los parametros al momento de ejecutar
 
 Ejemplo: 
  ```js
- saludo(argumento)
+ greeting(argument)
  ```
 
 ### 2️⃣ Convierte el siguiente código en una función, pero, cambiando cuando sea necesario las variables constantes por parámetros y argumentos en una función:
 
 ```js
-function presentacion(fullName, nickname) {
+function presentation(fullName, nickname) {
     console.log(`Mi nombre es ${fullName}, pero me gusta que me llamen ${nickname}.`)
 }
 ```
@@ -133,9 +133,9 @@ if else y else if: Estos nos permiten hacer distintas comparaciones según nuest
 
 Ejemplo: 
  ```js
- if (condicion) {
+ if (condition) {
     // Si la condición es cierta se ejecuta este codigo
- } else if (condicion2) {
+ } else if (condition2) {
     // Si la condición anterior es falsa, se dirige hacia el siguiente else if o else, y si esta es cierta se ejecuta.
  } else {
     // Si ninguno de los 2 condiciones anteriores es cierta, se ejecuta este si o si.
@@ -146,15 +146,16 @@ switch: Este permite analizar diferentes situaciones de UN UNICO VALOR, lo cual 
 
 Ejemplo:
  ```js
- switch (condicion) {
-    case condicion1:
+ switch (condition) {
+    case condition1:
         // Si la condición es cierta se ejecuta este codigo
         break // Se tiene que declarar cuando acaba la condición para seguir escribiendo otras condiciones
-    case condicion2:
+    case condition2:
         // Si la condición es cierta se ejecuta este codigo
         break
     default:
         // Ejecuta el codigo por defecto si ninguno de los anteriores tiene una condicion cierta.
+        // Default es totalmente opcional
         break
  }
  ```
@@ -165,13 +166,13 @@ Si, y resulta que es una practica muy común para crear codigo reutilizable que 
 
 ### 2️⃣ Replica el comportamiento del siguiente código que usa la sentencia switch utilizando if, else y else if:
 ```js
-const tipoDeSuscripcion = 'basic'
+const subscriptionType = 'basic'
 
-if (tipoDeSuscripcion === 'free') {
+if (subscriptionType === 'free') {
     console.log("Solo puedes tomar los cursos gratis")
-} else if (tipoDeSuscripcion === 'basic') {
+} else if (subscriptionType === 'basic') {
     console.log("Puedes tomar casi todos los cursos de Platzi durante un mes")
-} else if (tipoDeSuscripcion === 'expert') {
+} else if (subscriptionType === 'expert') {
     console.log("Puedes tomar casi todos los cursos de Platzi durante un año")
 } else {
     console.log("Tú y alguien más pueden tomar TODOS los cursos de Platzi durante un año")
@@ -180,14 +181,14 @@ if (tipoDeSuscripcion === 'free') {
 
 ### 3️⃣ Replica el comportamiento de tu condicional anterior con if, else y else if, pero ahora solo con if (sin else ni else if).
 ```js
-const suscripciones = {
+const subscriptions = {
     Free: 'Solo puedes tomar los cursos gratis',
     Basic: 'Puedes tomar casi todos los cursos de Platzi durante un mes',
     Expert: 'Puedes tomar casi todos los cursos de Platzi durante un año',
     ExpertPlus: 'Tú y alguien más pueden tomar TODOS los cursos de Platzi durante un año'
 }
 
-if(tipoDeSuscripcion) console.log(suscripciones[tipoDeSuscripcion])
+if(subscriptionType) console.log(subscriptions[subscriptionType])
 ```
 
 ## Ciclos
@@ -205,7 +206,7 @@ while: Como podemos ver traduciendo literalmente el nombre, es que mientras una 
 
 Ejemplo: 
 ```js
-while (condicion) {
+while (condition) {
     // Mientras la condición sea cierta, esto se ejecutará infinitamente hasta que deje de ser cierta
 }
 ```
@@ -286,13 +287,13 @@ En Javascript un objeto es una entidad completamente independiente con propiedad
 
 Ejemplo: 
 ```js
-const objeto = {
+const object = {
     valor: 1,
     texto: 'Esto es un objeto'
     'algo mas': ['un array xd']
 }
 
-console.log(objeto.valor, objeto.'algo mas') // Para acceder a ellos se usa esta sintaxis
+console.log(object.valor, object.'algo mas') // Para acceder a ellos se usa esta sintaxis
 ```
 
 > ¿Cuándo es mejor usar objetos o arrays?
@@ -305,37 +306,37 @@ En los ejemplos anteriores se puede evidenciar que si se puede, y definitivament
 
 ### 2️⃣ Crea una función que pueda recibir cualquier array como parámetro e imprima su primer elemento.
 ```js
-const misTelefonos = ['iPhone X', 'Redmi 4a']
+const myPhone = ['iPhone X', 'Redmi 4a']
 
-function imprimirPrimerElemento(arr) {
+function printFirstElement(arr) {
     console.log(arr[0])
 }
-imprimirArray(misTelefonos) // Imprime 'iPhone X'
+imprimirArray(myPhone) // Imprime 'iPhone X'
 ```
 
 ### 3️⃣ Crea una función que pueda recibir cualquier array como parámetro e imprima todos sus elementos uno por uno (no se vale imprimir el array completo).
 ```js
-const diasSemana = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado']
+const weekDays = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado']
 
-function imprimirArrayCompleto(arr) {
-    arr.forEach(elem => console.log(elem))
+function printFullArray(arr) {
+    arr.forEach(element => console.log(element))
 }
-imprimirArrayCompleto(diasSemana)
+printFullArray(weekDays)
 ```
 
 ### 4️⃣ Crea una función que pueda recibir cualquier objeto como parámetro e imprima todos sus elementos uno por uno (no se vale imprimir el objeto completo).
 ```js
-const miTelefono = {
+const myPhone = {
     color: 'Negro',
     pantalla: 'A medias xd',
 }
 
-function imprimirObjeto(obj) {
-    for (const elemento in obj) {
-        console.log(`${elemento}: ${obj[elemento]}`)
+function printFullObject(obj) {
+    for (const element in obj) {
+        console.log(`${element}: ${obj[element]}`)
     }
 }
-imprimirObjeto(miTelefono)
+printFullObject(myPhone)
 ```
 
 
