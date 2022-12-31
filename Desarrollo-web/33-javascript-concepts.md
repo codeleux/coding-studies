@@ -70,8 +70,8 @@ El Call Stack es un mecanismo que tiene como objetivo el permitir a un intérpre
 <img src='https://www.javascripttutorial.net/wp-content/uploads/2019/12/JavaScript-Call-Stack.png'>
 
 <br>
----
 
+---
 ## 2. Primitives Types
 
 Los datos primitivos, son aquellos que no son objetos (ya que en JavaScript casi todo es un objeto o una función), y que tampoco tienen metodos, en total hay 7 tipos de datos primitivos, los cuales son:
@@ -84,9 +84,10 @@ Los datos primitivos, son aquellos que no son objetos (ya que en JavaScript casi
 - null
 - Symbol
 
+<br>
+
 > ### String
 
-<br>
 En la gran mayoria de lenguajes de programación, string es una secuencia de caracteres para representar el texto.
 
 En JavaScript es uno de los valores primitivos, representa el texto y (casi) siempre contiene algún caracter unicode encerrado en alguna comilla ('', "", ``)
@@ -98,9 +99,10 @@ Ejemplo:
 `Este tipo de string se usa para una cosita especial ;)`
 ```
 
+<br>
+
 > ### Number
 
-<br>
 Este tipo de dato es de tipo numerico (obviamente), pero a diferencia del string no hay que colocar nada especial para especificar implicitamente este tipo de dato, solo es necesario colocar el numero en cuestión, el unico inconveniente es que tiene un limite (el famosisimo limite de 32-bits) el cual es 2.147'483.647
 
 Ejemplo: 
@@ -110,9 +112,10 @@ Ejemplo:
 2147483647
 ```
 
+<br>
+
 > ### Boolean
 
-<br>
 Un booleano en la indole de ciencias de la informatica es un dato logico que solo tiene 2 valores, true y false.
 
 Ejemplo:
@@ -121,9 +124,10 @@ true
 false
 ```
 
+<br>
+
 > ### bigInt
 
-<br>
 Este es otro tipo de dato numerico, tal y como number, pero este no cuenta con el limite de 32-bits
 
 Si en algun momento te preguntas si estos 2 se pueden combinar, te lo respondo:
@@ -132,14 +136,16 @@ Para mantener el codigo organizado no se recomienda hacer operaciones combinadas
 
 bigInt solo se recomienda usar con valores mayores a 2^53
 
+<br>
+
 > ### Symbol
 
-<br>
 Los Symbol se utilizan a menudo para añadir las claves de propiedades unicas a un objeto, estas no serán iguales a ningun otro codigo que se le pueda añadir al objeto, y están ocultas de la mayoria de mecanismos integrados del sistema.
+
+<br>
 
 > ### undefined
 
-<br>
 Este es un valor primitivo que se le asigna automaticamente a variables, arrays, etc, que fueron declaradas sin valor alguno (o que lo perdió en el codigo) o de argumentos generados que no existen en el codigo.
 
 Ejemplo:
@@ -149,9 +155,10 @@ let undefinedValue
 console.log(undefinedValue)     // undefined
 ```
 
+<br>
+
 > ### Null
 
-<br>
 El valor de null representa la ausencia de cualquier objeto, pero este no es como undefined, ya que define la ausencia explicita, no una falta de datos.
 
 Un dato curioso de null es que si usas typeOf en null, te devuelve la respuesta object, esto es un bug de JavaScript que no fue intencional, pero que realmente no se puede cambiar asi como asi, ya que un cambio de comportamiento de ese estilo en JavaScript, rompería codigo antiguo.
@@ -162,6 +169,8 @@ const nullValue = null
     // Se define explicitamente
 typeOf null     // Object
 ```
+
+<br>
 
 ### Ejemplo final
 
@@ -185,6 +194,8 @@ En JavaScript hay 2 tipos de valores, los de valor y los de referencia.
 Los de valor son variables que solo contienen datos primitivos, y por consecuente no es necesario darle mucha importancia con respecto a la memoria en la que es guardada.
 
 Por otro lado los de referencia son variables que contienen objetos, funciones e incluso arrays, y estos son guardados en la memoria con un valor de referencia, este valor es como un codigo que nos lleva a una parte de la memoria que está reservada unicamente para la variable.
+
+<br>
 
 > ### Value Types
 
@@ -216,6 +227,8 @@ value1 = 20
 
 console.log(value2)    // da 10, ya que se copió el contenido y no la referencia (explicada despues).
 ```
+
+<br>
 
 > ### Reference Types
 
@@ -250,4 +263,32 @@ obj1.value++
 
 console.log(obj2.value)    // 2
 // El elemento value de obj2 se actualizó a el de obj1
+```
+
+## 4. Implicit, Explicit, Nominal, Structuring and Duck Typing
+
+> ### Implicit and Explicit
+
+Estos 2 teas son muy importantes en JavaScript, ya que este al ser un lenguaje de tipado debil, nunca se siente demasiado presente en nuestro pensamiento durante el codigo.
+
+Implicito es como llamamos a nuestro codigo al que se le otorgó un tipo sin ser declarado como tal en el codigo, como por ejemplo cuando inicializamos una variable con un string, realmente nunca le decimos que es un string, pero el motor lo reconoce como tal, y lo declara por nosotros.
+
+Ejemplo:
+
+```js
+const implicitString = 'Este string fue valorizado implicitamente'
+
+const implicitBoolean = true
+```
+
+<br>
+
+En cambio lo explicito se refiere a declarar que un valor es de el tipo que es referenciado en el codigo.
+
+Ejemplo: 
+
+```js
+const explicitString = String(true)
+
+console.log(explicitString) // 'true'
 ```
