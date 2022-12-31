@@ -292,3 +292,38 @@ const explicitString = String(true)
 
 console.log(explicitString) // 'true'
 ```
+
+Claramente existen muchas maneras de declarar un tipo como explicito, incluso hay para la mayoria de valores primitivos:
+- El operador + y el constructor Number() pueden ser usados para convertir otros datos en numeros.
+```js
+const plusOperator = +'20'  // 20
+const numberConstructor = Number('99')
+```
+- Los operadores ! y !! son usados para representar explicitamente que un valor es `true` o `false`.
+```js
+const negativeOperator = !'Cualquier valor' // false
+const positiveOperator = !!'Cualquier valor x2' // true
+```
+
+<br>
+
+> ### Sistema de Tipos
+
+Antes de venir a explicar los diferentes tipos, deberiamos tener un leve conocimiento sobre ¿Que son los tipos?.
+
+Primero deberiamos intentar entender que es un tipo, lo cual voy a intentar explicar de manera rapida:
+
+Los tipos pueden ser una forma de clasificar valores (variables, funciones, objetos, constantes, etc). Dependiendo de la base de el sistema de tipos, podemos estatuir que determinado valor es lo que es.
+
+Con esta idea podriamos pensar en los tipos como un conjunto, formado por los valores que hacer parte del mismo.
+
+>> ##### Esta información de tipos permite comprobar que nuestro programa se comporta como debe. En el caso de un lenguaje con tipado estático, el compilador podrá chequear de forma estática las asignaciones para verificar que los tipos son compatibles entre sí. En el caso de un lenguaje dinámico, estas comprobaciones se realizán en tiempo de ejecución.    - [Blog Koalite](https://blog.koalite.com/2018/01/tipados-nominal-y-tipado-estructural/#:~:text=En%20un%20sistema%20de%20tipos,los%20mismos%20elementos%20o%20no.)
+<br>
+
+> ### Tipado Nominal
+En los lenguajes que tienen algún tipado nominal, dos tipos son compatibles entre sí cuando tienen el mismo nombre, sin importar en lo absoluto su estructura.
+
+Ejemplo: (codigo de java)
+```java
+class Main
+```
