@@ -370,3 +370,46 @@ Este tipado trae diferentes ventajas sobre el nominal, como el ser más flexible
 
 ### Duck Typing
 
+El Duck Typing es conocido por ser el favorito de los lenguajes interpretados, muy pocos lenguajes compilados tienen excepciones para usar este tipado.
+
+Este mismo se basa en una frase bastante conocida en el mundo del razonamiento inductivo que dice así: "Cuando algo camina como pato, nada como pato y suena como un pato, puede ser un pato.", esto parece logico, pero en ciencias informaticas lo podemos resolver de la siguiente manera: "Puede hacer las cosas que hace un pato, no tiene que ser un pato, pero por las caracteristicas que se dan, puede serlo".
+
+En programación esto se define en un tipado que solo requiere ciertos aspectos de un objeto para ser usados, no de el tipo de el objeto, ni del nombre.
+
+Ejemplo: 
+```js
+class Duck {
+  blink() {
+    console.log('¡Cuac!')
+  }
+  feather() {
+    console.log('¡Al pato se le cayó una pluma!')
+  }
+}
+
+class Human {
+  blink() {
+    console.log('Una persona imita el sonido de un pato')
+  }
+  feather() {
+    console.log('Una persona encuentra una pluma en el piso y se la lleva consigo')
+  }
+}
+
+function inTheForest(classElement) {
+  classElement.blink()
+  classElement.feather()
+}
+
+const juan = new Duck()
+const alejandro = new Human()
+
+function game() {
+  inTheForest(juan) // ¡Cuac! - '¡Al pato se le cayó una pluma!'
+  inTheForest(alejandro)  // 'Una persona imita el sonido de un pato' - 'Una persona encuentra una pluma en el piso y se la lleva consigo'
+}
+
+game()
+```
+
+En el codigo se puede ver que se crean 2 clases, la clase Duck representa un pato, y la clase Human representa a una persona, entonces aunque ambas funciones tengan una estructura similar, no es lo que busca cuando son llamados, si no que busca si tienen la caracteristica, función u objeto en especifico.
