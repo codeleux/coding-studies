@@ -323,7 +323,50 @@ Con esta idea podriamos pensar en los tipos como un conjunto, formado por los va
 > ### Tipado Nominal
 En los lenguajes que tienen algún tipado nominal, dos tipos son compatibles entre sí cuando tienen el mismo nombre, sin importar en lo absoluto su estructura.
 
-Ejemplo: (codigo de java)
-```java
-class Main
+Ejemplo: (codigo de C# porque es considerablemente más corto que el de java)
+```js
+class Person {
+  public int Id { get; set; }
+  public string Name { get; set; }
+}
+class Product {
+  public int Id { get; set; }
+  public string Name { get; set; }
+}
+
+Person paco = new Person { Id = 2, Name = "Paco" };
+Product morcilla = paco;  // no son compatibles
 ```
+source: [Blog Koalite](https://blog.koalite.com/2018/01/tipados-nominal-y-tipado-estructural/#:~:text=En%20un%20sistema%20de%20tipos,los%20mismos%20elementos%20o%20no.)
+
+Estas 2 clases tienen una estructura completamente identica, pero no son compatibles entre si.
+>> Y esto es Bueno™. O al menos lo parece, porque nos evita cometer fallos como intentar vender personas o casarnos con productos. 
+##### Blog Koalite
+
+<br>
+
+### Tipado Estructural
+
+Es muy facil intuír el como funciona el tipado estructural conociendo el funcionamiento de el nominal, pero si todavia no te llega, lo voy a explicar.
+
+El tipado estructural permite la compatibilidad de tipos dependiendo de la estructura de los mismos, pero no tienen que ser identicos.
+
+Ejemplo: (si, otra vez un ejemplo de Blog Koalite)
+```js
+type Shape { width: number, height: number }
+type Box { color: string, width: number, height: number }
+ 
+let s: Shape = { width: 10, height: 5 };
+let b: Box = s; // Error, Shape no tiene color
+ 
+let b2: Box = { color: 'blue', width: 8, height: 4 };
+let s2: Shape = b2; // OK, Box tiene todo lo que necesita Shape
+```
+##### esto es typescript btw
+
+Este tipado trae diferentes ventajas sobre el nominal, como el ser más flexible y aprovechar el polimorfismo, practicamente un Duck Typing pero de los lenguajes compilados, pero OJO, no hay uno mejor sobre el otro, deberias escoger lenguajes con el tipado que más te guste, o el que sea necesario para el trabajo que busques resolver.
+
+<br>
+
+### Duck Typing
+
