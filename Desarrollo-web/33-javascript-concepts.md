@@ -345,7 +345,7 @@ Estas 2 clases tienen una estructura completamente identica, pero no son compati
 
 <br>
 
-### Tipado Estructural
+> ### Tipado Estructural
 
 Es muy facil intuír el como funciona el tipado estructural conociendo el funcionamiento de el nominal, pero si todavia no te llega, lo voy a explicar.
 
@@ -368,7 +368,7 @@ Este tipado trae diferentes ventajas sobre el nominal, como el ser más flexible
 
 <br>
 
-### Duck Typing
+> ### Duck Typing
 
 El Duck Typing es conocido por ser el favorito de los lenguajes interpretados, muy pocos lenguajes compilados tienen excepciones para usar este tipado.
 
@@ -413,3 +413,54 @@ game()
 ```
 
 En el codigo se puede ver que se crean 2 clases, la clase Duck representa un pato, y la clase Human representa a una persona, entonces aunque ambas funciones tengan una estructura similar, no es lo que busca cuando son llamados, si no que busca si tienen la caracteristica, función u objeto en especifico.
+
+<br>
+
+## 5. == vs === vs typeof
+
+> ### Operadores de igualdad
+
+En JavaScript existen 2 operadores de igualdad: 
+- Operador de igualdad debil (==)
+- Operador de igualdad estricta (===)
+
+El operador de igualdad debil (==) hace una coerción entre los tipos que se le dan, para intentar flexibilizar las comparaciones, por lo que normalmente prioriza el contenido al momento de devolver el resultado, en caso de que la coerción no sea posible va a devolver false (obviamente).
+
+Ejemplo:
+```js
+console.log(11 == '11')  // true
+// Hace la coerción de tipos, por lo que a pesar de ser un string es "igual" a el numero.
+```
+<br>
+En cambio el operador de igualdad estricta (===) compara el tipo y el contenido de lo que se le dio a referencia, por lo que tecnicamente si es una comparación 100% veridica, aunque esto tiene ciertas excepciones.
+
+Ejemplo:
+```js
+console.log(11 === '11')  // false
+
+console.log(11 === 11)  // true
+```
+
+> ### Operador typeof
+
+En JavaScript existe un operador que devuelve un string indicando el tipo de el operando, esto suena muy ambiguo pero lo voy a explicar con codigo.
+
+Modo de uso:
+```js
+typeof operando
+typeof (operando)
+```
+(cualquiera sirve)
+
+Ejemplo:
+```js
+const myFunction = () => console.log('Esta es MI función')
+const myNumber = 20
+const myShape = 'circulo'
+const today = new Date()
+
+typeof myFunction  // 'function'
+typeof myNumber  // 'number'
+typeof myShape  // 'string'
+typeof today  // 'object'
+```
