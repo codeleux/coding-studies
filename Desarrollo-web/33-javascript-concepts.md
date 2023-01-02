@@ -72,7 +72,7 @@ El Call Stack es un mecanismo que tiene como objetivo el permitir a un intérpre
 <br>
 
 ---
-## 2. Primitives Types
+## 2. Primitive Types
 
 Los datos primitivos, son aquellos que no son objetos (ya que en JavaScript casi todo es un objeto o una función), y que tampoco tienen metodos, en total hay 7 tipos de datos primitivos, los cuales son:
 
@@ -530,3 +530,16 @@ if (true) {
 ```
 
 <br>
+
+## 7. Expression vs Statement
+
+Se viene explicación corta ya que este tema es sencillo:
+
+En general, en el ambito de la programación, una expresión es un pedazo de codigo que produce un valor, por lo que a entendimiento más sencillo podriamos decir que: "Cualquier codigo que genere un valor es una expresión".
+
+En cambio un statement (o declaración), no genera un valor como resultado, por lo que practicamente es una pieza de codigo cuyo objetivo es dar una orden a la maquina, en vez de devolver un valor.
+
+##### TODO: Intentar alargar este, esta DEMASIADO corto.
+
+<br>
+
