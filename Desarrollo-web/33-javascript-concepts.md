@@ -464,3 +464,69 @@ typeof myNumber  // 'number'
 typeof myShape  // 'string'
 typeof today  // 'object'
 ```
+<br>
+
+## 6. Function Scope, Block Scope and Lexical Scope
+
+Aqui vamos a hablar de los scopes, como funcionan y que abarcan en su conjunto: 
+
+Los scopes representan literalmente lo que abarca cada dato, en donde se puede acceder, etc.
+
+<br>
+
+> ### Local y Global Scope
+
+Los scopes se dividen en 2 partes principales, el global, y el local.
+
+El Scope global representa a cualquier variable/función a la que se puede acceder desde cualquier parte del archivo, normalmente es porque son declaradas fuera de cualquier función, o algo por el estilo.
+
+El Scope global hace referencia a las variables/funciones, que no pueden ser accedidas fuera de su scope (ya lo explico), esto se refiere a los datos que están dentro de funciones o encerradas en llaves (pero que no son objetos).
+
+Ejemplo:
+```js
+const globalVar = 'Puedes acceder a mí en todo el documento!'
+
+function functionScope() {
+  const functionVar = 'Solo puedes acceder a mi en esta función!'
+  console.log(functionVar)  // 'Solo puedes acceder a mi en esta función!'
+}
+
+if (true) {
+  const blockVar = 'Solo puedes acceder a mi en este "bloque"!'
+  console.log(blockVar)  // 'Solo puedes acceder a mi en este "bloque"!'
+}
+
+console.log(globalVar)  // 'Puedes acceder a mí en todo el documento!'
+console.log(functionVar)  // Error
+console.log(blockVar) // Error
+```
+
+<br>
+
+> ### Function Scope
+
+Como se puede apreciar en el codigo anterior, el scope de función aplica dentro de una función (lol), y este hace que solo se pueda acceder a las variables y objetos declaradas en este scope.
+
+<br>
+
+> ### Block Scope
+
+Este aplica un poco más hacia lo que pertenece algo, digamos un condicional como `if`, o una iteración como `for`, practicamente todo lo que esté dentro llaves ({}) y no sea un objeto pertenece a un bloque.
+
+Ejemplo:
+```js
+if (true) {
+  const value1 = '¡Esto es un string!'
+
+  if (true) {
+    const value2 = '¡Esto es otro string!'
+
+    console.log(value2)  // '¡Esto es otro string!'
+  }
+
+  console.log(value1)  // '¡Esto es un string!'
+  console.log(value2)  // Error
+}
+```
+
+<br>
