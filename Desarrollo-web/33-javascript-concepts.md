@@ -543,3 +543,76 @@ En cambio un statement (o declaración), no genera un valor como resultado, por 
 
 <br>
 
+## 8. IIFE, Modules and Namespaces
+
+> ### IIFE
+
+Los immediately-invoked function expression, tambien conocidos como "IIFE" (se leen algo como 'aifi'), es una manera de definir y ejecutar una función en una sola declaración.
+
+Estructura basica:
+```js
+(function(args) {
+  // Las cosas que normalmente van dentro de una función xd
+})()
+
+// O si quieres con sintaxis de ES6
+((args) => {
+  // Las cosas que normalmente van dentro de una función 
+})()
+```
+
+Con el codigo que vemos aquí podemos ver varias cosas, como que la función es anonima, o que se encierran en parentesis y luego se ponen parentesis despues (se usa asi `(function)()`).
+
+La caracteristica clave es que se ejecuta inmediatamente al definirse, y esto puede ser util dependiendo del contexto, tiene cosas muy utiles como generar un scope unicos para la función, esto evita colisiones entre variables u otros problemas que puedan surgir mientras el codigo escala.
+
+<br>
+
+> ### Modules
+
+En JavaScript un modulo es un pedazo de codigo que se ejecuta en un scope diferente al del codigo, esto permite definir variables y funciones solo disponibles dentro de el mismo, los modulos se ubican en archivos diferentes cada uno, con esto, se puede exportar e importar en diferentes archivos en todo el proyecto, haciendo codigo que tiene el unico objetivo de ser reutilizado multiples veces.
+
+Ejemplo: 
+```js
+export function moduleFunction() {
+  console.log('Si importas este modulo puedes ejecutar esta función en cualquier documento!')
+}
+
+export const moduleVariable = 'Esta variable será exportada!'
+```
+
+O tambien puedes exportarlas de esta manera:
+
+```js
+function moduleFunction() {
+  console.log('Si importas este modulo puedes ejecutar esta función en cualquier documento!')
+}
+
+const moduleVariable = 'Esta variable será exportada!'
+
+export { moduleFunction, moduleVariable }
+```
+
+Y las puedes importar en el documento por medio de la keyword reservada `import`, de esta manera:
+
+```js
+import { moduleFunction, moduleVariable } from 'ruta del archivo'
+```
+
+> ### Namespaces
+
+Un namespace es el contexto para identificar, un grupo logico de nombres que se usa en el programa, en el mismo contexto, scope y un identificador es una representación de una entidad
+
+##### TODO: siento que suena complicado
+
+Ejemplo:
+```js
+const exampleObject = {
+  value1: 'Esto es un valor!',
+  value2: 'Esto es otro valor!'
+}
+
+// Namespace
+exampleObject.value1
+```
+
+<br>
