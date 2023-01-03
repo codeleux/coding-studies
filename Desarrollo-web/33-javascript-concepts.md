@@ -185,6 +185,8 @@ const everyPrimitiveTypeInOneObject = {
   null: null
 }
 ```
+<br>
+
 ---
 
 ## 3. Value Types and Reference Types
@@ -264,7 +266,9 @@ obj1.value++
 console.log(obj2.value)    // 2
 // El elemento value de obj2 se actualizó a el de obj1
 ```
+<br>
 
+---
 ## 4. Implicit, Explicit, Nominal, Structuring and Duck Typing
 
 > ### Implicit and Explicit
@@ -416,6 +420,7 @@ En el codigo se puede ver que se crean 2 clases, la clase Duck representa un pat
 
 <br>
 
+---
 ## 5. == vs === vs typeof
 
 > ### Operadores de igualdad
@@ -531,6 +536,8 @@ if (true) {
 
 <br>
 
+---
+
 ## 7. Expression vs Statement
 
 Se viene explicación corta ya que este tema es sencillo:
@@ -542,6 +549,8 @@ En cambio un statement (o declaración), no genera un valor como resultado, por 
 ##### TODO: Intentar alargar este, esta DEMASIADO corto.
 
 <br>
+
+---
 
 ## 8. IIFE, Modules and Namespaces
 
@@ -616,3 +625,8 @@ exampleObject.value1
 ```
 
 <br>
+
+---
+
+## 9. Message Queue and Event Loop
+
