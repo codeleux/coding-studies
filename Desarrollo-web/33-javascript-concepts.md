@@ -630,4 +630,62 @@ exampleObject.value1
 
 ## 9. Message Queue and Event Loop
 
-Empecemos reincorporando una tematica que integramos en la primera tematica (el Call Stack), JavaScript 
+Empecemos reincorporando una tematica que integramos en el primer punto de la liste de los conceptos (El Call Stack), JavaScript es **single-threaded**, esto significa que no puede realizar 2 cosas a la vez, y la gran mayoría de las veces no es un problema tan grande, pero esto significa que si hacemos una acción que demora 1 minuto en realizarse, JavaScript va a estar ese minuto entero sin ser responsivo.
+
+##### JS implementa soluciones como el asincronismo y Event Loop, que ya explicaré, el asincronismo va para un punto adelante.
+
+Primero pensemos en una función que devuelve un valor:
+
+```js
+const greeting = () => {
+  console.log('Hola!')
+}
+
+greeting()  // 'Hola!'
+```
+
+Si ejecutamos esta función será llevada al Call Stack y luego será ejecutada, pero que podría ocurrir si una función requiere obtener información externa, consumir API's o que tenga un setTimeout, evidentemente esto ralentizaria nuestro codigo, pero JS trae una caracteristica que permite que esto no sea un problema.
+
+Esta vez pensemos en una función que devuelve el mismo valor que la anterior, pero esta contiene un setTimeout:
+
+```js
+const delayedGreeting = () => {
+  setTimeout(() => {
+    console.log('Hola!')
+  }, 1000)
+}
+
+delayedGreeting()  // Un segundo despues de la ejecución, devuelve 'Hola!'
+```
+
+Lo que hace esto aqui, es que delayedGreeting se ejecuta en el call stack, y se elimina inmediatamente se ejecuta, pero la funcion no ha devuelto su valor, entonces que ocurre aqui?, en realidad el Callback de la función es llevada a un entorno llamado "Web API", en donde se espera a que se termine de ejecutar la función asincronamente, cuando ya se termina de ejecutar es llevada a el "Queue", en donde se envian las funciones a el Call Stack turno por turno.
+
+Ejemplo: 
+
+```js
+const greet1 = () => console.log('Primero!')
+const greet2 = () => setTimeout(() => console.log('Segundo!'), 1000)
+const greet3 = () => console.log('Tercero!')
+
+greet1()
+greet2()
+greet3()
+
+/*
+  Explicaré que ocurre paso por paso:
+    1. Se crean 3 funciones, cada una devuelve a la consola un orden.
+    2. Se ejecutan las funciones.∫
+      - La consola devuelve:
+        'Primero!'
+        'Tercero!'
+        'Segundo!'
+
+    3. greet3 se ejecuta primero que greet2 ya que este mismo no está mas en el call stack, si no en el queue, por lo que puede seguir perfectamente.
+*/
+```
+
+Con esto podemos ver que a pesar de que greet2 se demora ejecutando un segundo, greet3 puede ignorar esa espera, ya que greet2 ya no existe en el call stack una vez que es ejecutado, es llevado a otra zona en donde la espera no hará un contratiempo en el codigo.
+
+<br>
+
+## 10. setTimeout, setInterval and requestAnimationFrame
