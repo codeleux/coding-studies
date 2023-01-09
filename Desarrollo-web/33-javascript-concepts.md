@@ -630,3 +630,4 @@ exampleObject.value1
 
 ## 9. Message Queue and Event Loop
 
+Empecemos reincorporando una tematica que integramos en la primera tematica (el Call Stack), JavaScript 
