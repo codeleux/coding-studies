@@ -689,3 +689,120 @@ Con esto podemos ver que a pesar de que greet2 se demora ejecutando un segundo, 
 <br>
 
 ## 10. setTimeout, setInterval and requestAnimationFrame
+
+> ### Function Scheduling
+
+Function Scheduling, o Planificación de funciones es a como me gusta referirme a los 2 metodos que nos permiten ejecutar funciones, pero no en el mismo momento que son invocadas, si no que en algún momento despues de hacerlo.
+
+Los metodos son los siguientes:
+- `setTimeout` - Nos permite ejecutar una función despues de el tiempo que le indiquemos.
+- `setInterval` - Nos permite ejecutar una función en el intervalo que le indiquemos, y lo seguira repitiendo hasta que le indiquemos que se detenga.
+
+<br>
+
+> ### setTimeout
+
+Como expliqué antes, setTimeout se usa para ejecutar funciones despues de ciertos milisegundos que le indiquemos, y esto nos puede ayudar en muchas cosas, como aprovechar el uso de el Event Loop y su Message Queue.
+
+Sintaxis: 
+```js
+const timerId = setTimeout(func|code, [delay], [arg1], [arg2], ...)
+```
+
+Ejemplos:
+```js
+function sayHi() {
+  console.log('¡Hola!')
+}
+
+setTimeout(sayHi, 1000)  // '¡Hola!'
+// Ejecuta la funcion a los 1000ms (1seg)
+
+```
+
+```js
+// Esta vez con una función con argumentos
+function sayHi(name) {
+  console.log(`¡Hola ${name}!`)
+}
+
+setTimeout(sayHi, 2000, 'Juan')  // '¡Hola Juan!
+// Ejecuta la funcion a los 2000ms (2seg)
+```
+
+<br>
+
+> ### setInterval
+
+Este es un tanto más diferente al anterior, ya que aunque este haga delay a las funciones, no es su objetivo principal, si no que repite las mismas en intervalos, va a repetir las funciones una y otra vez hasta que le indiquemos que se detenga, por lo tanto debe ser usado con mayor cautela que el anterior visto:
+
+Sintaxis: 
+```js
+const timerId = setInterval(func|code, [delay], [arg1], [arg2], ...)
+```
+
+Ejemplos: 
+```js
+function sayHi() {
+  console.log('¡Hola!')
+}
+
+setInterval(sayHi, 5000)  // '¡Hola!'
+// Se ejecuta la función en intervalos de 5000ms (5seg)
+```
+
+```js
+// Ahora con argumentos ;)
+function sayHi(name) {
+  console.log(`¡Hola ${name}!`)
+}
+
+setInterval(sayHi, 4000, 'Sebastian') // '¡Hola Sebastian!'
+// Se ejecuta la función en intervalos de 4000ms (4seg)
+```
+
+Pero ahí estamos generando intervalor infinitos, no hay nada que los detenga, y esto nos va a causar problemas en algún momento, por lo que JavaScript tiene el metodo de `clearInterval()`, el cual detendrá el intervalo una vez invocado.
+
+<br>
+
+> ### clearInterval
+
+Como pudimos ver en la explicación anterior, clearInterval detiene este intervalo infinito de funciones, y es muchisimo más simple de utilizar.
+
+Sintaxis: 
+```js
+clearInterval(func)
+```
+
+Así que demos un ejemplo que se pueda aplicar en un entorno "real":
+```js
+let count = 0  // Se crea una variable que está diseñada para cambiar
+
+const addOne = () => {
+  count += 1
+  console.log(count)
+}
+// Se crea una función que sume 1 a la variable "count" cada que es invocada
+
+const countInterval = setInterval(addOne, 1000)
+//  Se crea una variable que invoca "addOne" cada 1000ms (1seg)
+
+const clearCountInterval = setTimeout(() => {
+  clearInterval(countInterval)
+}, 6000)
+// Se crea una variable que empieza una cuenta para finalizar el intervalo anterior
+
+countInterval()
+clearCountInterval()
+// Se invocan ambas variables.
+```
+
+Y con esto concluye esta tematica... pero si vemos bien, hay un 3er tema en el titulo... requestAnimationFrame
+
+<br>
+
+> ### requestAnimationFrame
+
+`TODO: Transcribir la información escrita que tengo de este.`
+
+<br>
