@@ -806,3 +806,57 @@ Y con esto concluye esta tematica... pero si vemos bien, hay un 3er tema en el t
 `TODO: Transcribir la información escrita que tengo de este.`
 
 <br>
+
+## 11. Javascript Engines
+
+JavaScript es un lenguaje dinamico e interpretado, lo que significa que de alguna manera se tiene que pasar el codigo a la maquina, por lo que este depende de los diferentes Engines que existen en para el mismo, Engines como: 
+
+- V8 (para buscadores Chromium-based)
+- SpiderMonkey (Firefox)
+- Javascript Core Webkit (Safari)
+- Chakra (Internet Explorer)
+
+Así que deberiamos verlos uno por uno para entender su funcionalidad y diferencias.
+
+<br>
+
+> ### Como funciona un interprete - engine?
+
+Normalmente los interpretes de Javascript funcionan de manera similar:
+1. Lo primero que se hace es [*parsear*](https://www.techtarget.com/searchapparchitecture/definition/parser) el codigo, de está manera se creará un *abstract syntax tree*, que en teoría sería como en la siguiente imagen.
+<img src="https://ruslanspivak.com/lsbasi-part7/lsbasi_part7_ast_01.png">
+<br>
+
+1. El *abstract syntax tree*/el codigo será compilado a *bytecode* (Codigo flexible y portatil que puede ser compilado a machine code).
+1. Y por ultimo este *bytecode* será compilado de nuevo, pero esta vez a machine code, codigo que será ejecutado en tiempo real.
+
+Otra cosa que sería interesante para aclarar es que regularmente los interpretes aceptan tanto codigo ECMAScript como WebAssembly.
+<br>
+
+> ### V8
+V8 es practicamente el Engine más conocido y popular actualmente, es desarrollado por "the Chromium Project" para Google Chrome y otros navegadores basados en Chromium (Como Edge, Brave, Opera, etc), este mismo puede ser usado autonomamente, o incluso ser <a href="https://v8.dev/docs/embed">incorporado a C++</a>.
+
+Otra cosa pueden ser los Entornos de ejecución que basan a V8 como su interprete, como `node.js` y `deno`.
+
+<br>
+
+> ### SpiderMonkey
+Este interprete fue creado por Brendan Eich, el mismisimo creador de JavaScript, quien creó el lenguaje y el interprete para el navegador **Netscape**, Brendan también fue Co-fundador y ex-CEO de Mozilla Foundation y Mozilla Corporation, por lo que tiene un poco de sentido que el navegador Mozilla Firefox haya "heredado" muchas funcionalidades.
+
+<br>
+
+> ### Javascript Core
+
+Javascript Core es el interprete creado y desarrollado por Apple Inc., es un proyecto open source, con el objetivo de traer un Engine eficiente, rapido y de bajo consumo a aplicaciones web, aunque a pesar de ese ser el objetivo, es un interprete multipropositos que se puede usar en todo lado.
+
+Lo que este Engine nos ofrece es su rendimiento, velocidad, seguridad, estabilidad y compatibilidad, que hacen ver este como un buen engine. 
+
+Una cosa que vale la pena mencionar es que como en V8 existen entornos de ejecución basados en el mismo, como `node` y `deno`, existe uno que está basado en Javascript Core que se especializa en velocidad y rendimiento, conocido como [Bun](https://bun.sh/).
+
+<br>
+<br>
+
+> Lo importante es encontrar el interprete que nos favorezca más y nos de mejores resultados dependiendo de nuestro proyecto, no es correcto ir por uno porque es "mejor", ya que es completamente subjetivo.
+
+<br>
+
