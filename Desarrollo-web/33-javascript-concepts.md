@@ -921,4 +921,67 @@ Imagen de ejemplo:
 <br>
 
 ---
-## 14
+## 14. Factories and Classes
+
+> ### Classes
+Aquí ya entramos a territorio de POO (Programación Orientada a Objetos), por lo que las Classes y las Factory Functions van a ser demasiado importantes, ya que nos permiten tener una "plantilla" para crear objetos, lo que nos deja tener una estructura reutilizable y escalable a largo plazo.
+
+En mi opinion, es practicamente imposible no encontrarse ni una sola vez con alguna clase, ya que ademas de ser escalable, es "sencillo" y muy poderoso, en el siguiente codigo voy a explicar muy por encima como son declaradas (o expresadas) en un Javascript base.
+
+Ejemplo:
+```js
+// Las clases regularmente se nombran en PascalCase, en vez de camelCase
+
+// Declaración
+class Car {
+  constructor(model, year) {
+    this.model = model
+    this.year = year
+  }
+}
+
+const myCar = new Car('Model 1', 2021)  // Devuelve un objeto con 2 atributos, model y year, con su respectivo contenido.
+
+// Expresión - Clase anonima
+const Car = class {
+  constructor(model, year) {
+    this.model = model
+    this.year = year
+  }
+}
+
+const myCar = new Car('Model 2', 2022)
+// Las expresiones pueden ser re-declaradas, pero las clases declaradas no
+```
+
+`Dato: las clases son "funciones especiales", por lo que entran en la categoria de object Function`
+
+Pero ahora sabiendo que son las clases y como funcionan... ¿Que son las Factory Functions?...
+
+<br>
+
+> ### Factory Functions
+Se conoce como Factory Function a aquellas funciones que devuelven un objeto como resultado, por lo que tecnicamente son como las clases, ya que hacen codigo reutilizable que devuelve un objeto dependiendo de los argumentos que se le pasen, pero al estas ser funciones, y no clases tienen caracteristicas ajenas a las anterior mencionadas.
+
+¿Pero que tipo de caracteristicas distintas pueden tener si al final devuelven ambos un objeto?, la respuesta no es tan corta, pero ambas funcionan de manera distinta, ya que estas funciones no usan el keyword `this`, ni tampoco se necesita usar el `new` keyword.
+
+Ejemplo: 
+```js
+// Declaración
+function createCar(model, year) {
+  return {
+    model: model,
+    year: year,
+    startEngine: () => {
+      console.log('v r o o m')
+    }
+  }
+}
+
+const model1 = createCar('Model 1', 2022)
+model1.startEngine()  // 'v r o o m'
+```
+
+Tecnicamente ya terminamos la comprensión de la tematica basica, pero me gustaría añadar una cosa muy importante: `La diferencia verdadera entre class y las Factory Functions es que las clases generan PLANTILLAS de objetos, pero las funciones DEVUELVEN el objeto, son cosas distintas.`
+
+<br>

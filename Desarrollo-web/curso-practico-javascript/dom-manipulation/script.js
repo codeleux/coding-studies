@@ -1,9 +1,7 @@
-const h1 = document.querySelector('h1')
-const p = document.querySelector('p')
-const classTest = document.querySelector('.classTest')
-const idTest = document.querySelector('#idTest')
-const input = document.querySelector('input')
+const inputSum1 = document.querySelector('#number1')
+const inputSum2 = document.querySelector('#number2')
 
-console.log(h1, p, classTest, idTest, input)
-
-classTest.innerText = 'Este párrafo fue editado con el metodo innerText <br> ;) nice'
+function sumInputs() {
+    const sumInputs = parseInt(inputSum1) + parseInt(inputSum2)
+    console.log(sumInputs)
+}
