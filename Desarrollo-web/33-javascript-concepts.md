@@ -25,7 +25,7 @@ Este documento hace referencia a el repositorio de [leonardomso](https://github.
 9. **[Message Queue and Event Loop](#9-message-queue-and-event-loop)**
 10. **[setTimeout, setInterval and requestAnimationFrame](#10-settimeout-setinterval-and-requestanimationframe)**
 11. **[JavaScript Engines](#11-javascript-engines)**
-12. **[Bitwise Operators, Type Arrays and Array Buffers](#12-bitwise-operators-type-arrays-and-array-buffers)**
+12. **[Bitwise Operators, Typed Arrays and Array Buffers](#12-bitwise-operators-typed-arrays-and-array-buffers)**
 13. **[DOM and Layout Trees](#13-dom-and-layout-trees)**
 14. **[Factories and Classes](#14-factories-and-classes)**
 15. **[this, call, apply and bind](#15-this-call-apply-and-bind)**
@@ -90,7 +90,7 @@ Los datos primitivos, son aquellos que no son objetos (ya que en JavaScript casi
 
 En la gran mayoria de lenguajes de programación, string es una secuencia de caracteres para representar el texto.
 
-En JavaScript es uno de los valores primitivos, representa el texto y (casi) siempre contiene algún caracter unicode encerrado en alguna comilla ('', "", ``)
+En JavaScript es uno de los valores primitivos, representa el texto y (casi) siempre contiene algún caracter unicode encerrado en alguna comilla ('', "")
 
 Ejemplo: 
 ```js
@@ -860,3 +860,65 @@ Una cosa que vale la pena mencionar es que como en V8 existen entornos de ejecuc
 
 <br>
 
+---
+ ## 12. Bitwise Operators, Typed Arrays and Array Buffers
+<br>
+
+> ### Bitwise Operators
+
+Los Bitwise Operators son operaciones que funcionan con el sistema binario, manipulando bit por bit individualmente, siendo un sistema un tanto primitivo, pero que es soportado nativamente por los procesadores.
+
+Existen distintos tipos de operadores bitwise, asi que dejaré este esta imagen con la información de cada uno, y recuerda que si quieres profundizar en esta tematica, recomiendo fuertemente que lo busques por tu cuenta, lee, practica y aprende, ya que aqui no lo voy a tocar con mucha profundidad.
+
+<img src="https://miro.medium.com/max/805/1*6EqSzpSqEX3NsJNwQoZ44Q.jpeg">
+
+<br>
+
+> ### Typed Arrays
+
+Los Typed Arrays son objetos muy similares a los arrays regulares, son un mecanismo para leer y escribir datos binarios sin procesar, estos mismos almacenan un tamaño y tipo de dato especifico. Estos permiten trabajar con datos binarios, como los enteros, floats, doubles, booleans y caracteres.
+
+Estos arrays permiten un acceso más rapido y eficiente a los datos, ya que el tamaño de los mismos se conoce de antemano, al no ser dinamico como un array regular, esto permite al interprete optimizar el codigo y el almacenamiento.
+
+Los Typed Arrays son súper utiles a la hora de manipular datos binarios, como las imagenes, video o incluso el audio.
+
+<br>
+
+> ### Array Buffers
+
+Un array buffer es un objeto especial que contiene datos binarios. Estos datos binarios se pueden interpretar como una secuencia de bytes y se pueden manipular de acuerdo a la especificación de la API de Array Buffer de JavaScript que uses. Los datos almacenados en un array buffer pueden ser de cualquier tipo, como enteros, floats, caracteres, etc.
+
+Un array buffer es útil para almacenar y procesar datos binarios, como imagenes, audio o video. También se pueden usar para enviar y recibir datos entre un navegador y un servidor. Se pueden crear array buffers a partir de diferentes tipos de datos, como cadenas, enteros, floats, caracteres, etc.
+
+Los array buffers se pueden manipular de diferentes maneras. Se pueden leer, escribir, copiar, recortar, fusionar, ordenar y otras operaciones. También se pueden transformar los datos en diferentes tipos, como cadenas, enteros, floats, caracteres, etc.
+
+La API de Array Buffer de JavaScript proporciona métodos para crear, manipular y compartir array buffers con otros objetos, como ArrayBufferView. Estos objetos son utilizados para manipular los datos binarios almacenados en el array buffer.
+
+<br>
+
+---
+## 13. DOM and Layout Trees
+
+> ### Document Object Model
+El Document Object Model tambien conocido como DOM, es en teoría, una API para HTML, este mismo facilita una visualización de el documento haciendo una representación de el documento, el root element, los distintos elements, sus atributos y valores en una tabla sencilla de ver, tambien define el como distintos programas pueden acceder a cada elemento, su estructura, su contenido e incluso su estilo con JavaScript
+
+Imagen del DOM: 
+<br>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/DOM-model.svg/1200px-DOM-model.svg.png" width="400" height="400">
+
+Como se puede observar en esta imagen, muestra todo lo que se encuentra en el documento, como el inicio del HTML, el head y el body, todo lo que tiene, sus elementos, sus atributos y su contenido.
+
+<br>
+
+> ### Layout Trees
+
+Los Layout Trees, o Tree Layouts (como quieras llamarlo) son　parte de algoritmia de programación, que nos ayuda a tener representaciones graficas de el contenido de un documento (regularmente de algún lenguaje de programación), en donde se muestra la raiz de el documento, y sus elementos, demostrando quien es Padre e Hijo de quien.
+
+Imagen de ejemplo:
+<img src="https://camo.githubusercontent.com/811d130d02af944a47225ca9d9a5d6f987765b196f2bf9c61f99556d3bb1eac9/687474703a2f2f747265656c61796f75742e736f75726365666f7267652e6e65742f696d6167652f547265654772617068566965772d466967757265372e706e67">
+
+<br>
+
+---
+## 14
