@@ -51,6 +51,7 @@ Este documento hace referencia a el repositorio de [leonardomso](https://github.
 ---
 
 ## 1. Call Stack
+---
 
 El Call Stack se basa en un concepto basico de JavaScript, este lenguaje es 'Single-Threaded', osea que no puede ejecutar 2 cosas al mismo tiempo, siempre siguen un hilo de ejecución, por lo que JavaScript tiene que manejar todo de una manera, cierto?
 <br><br>
@@ -73,6 +74,7 @@ El Call Stack es un mecanismo que tiene como objetivo el permitir a un intérpre
 
 ---
 ## 2. Primitive Types
+---
 
 Los datos primitivos, son aquellos que no son objetos (ya que en JavaScript casi todo es un objeto o una función), y que tampoco tienen metodos, en total hay 7 tipos de datos primitivos, los cuales son:
 
@@ -190,6 +192,7 @@ const everyPrimitiveTypeInOneObject = {
 ---
 
 ## 3. Value Types and Reference Types
+---
 
 En JavaScript hay 2 tipos de valores, los de valor y los de referencia.
 
@@ -270,6 +273,7 @@ console.log(obj2.value)    // 2
 
 ---
 ## 4. Implicit, Explicit, Nominal, Structuring and Duck Typing
+---
 
 > ### Implicit and Explicit
 
@@ -422,6 +426,7 @@ En el codigo se puede ver que se crean 2 clases, la clase Duck representa un pat
 
 ---
 ## 5. == vs === vs typeof
+---
 
 > ### Operadores de igualdad
 
@@ -471,7 +476,9 @@ typeof today  // 'object'
 ```
 <br>
 
+---
 ## 6. Function Scope, Block Scope and Lexical Scope
+---
 
 Aqui vamos a hablar de los scopes, como funcionan y que abarcan en su conjunto: 
 
@@ -537,8 +544,8 @@ if (true) {
 <br>
 
 ---
-
 ## 7. Expression vs Statement
+---
 
 Se viene explicación corta ya que este tema es sencillo:
 
@@ -553,6 +560,7 @@ En cambio un statement (o declaración), no genera un valor como resultado, por 
 ---
 
 ## 8. IIFE, Modules and Namespaces
+---
 
 > ### IIFE
 
@@ -627,8 +635,8 @@ exampleObject.value1
 <br>
 
 ---
-
 ## 9. Message Queue and Event Loop
+---
 
 Empecemos reincorporando una tematica que integramos en el primer punto de la liste de los conceptos (El Call Stack), JavaScript es **single-threaded**, esto significa que no puede realizar 2 cosas a la vez, y la gran mayoría de las veces no es un problema tan grande, pero esto significa que si hacemos una acción que demora 1 minuto en realizarse, JavaScript va a estar ese minuto entero sin ser responsivo.
 
@@ -688,7 +696,9 @@ Con esto podemos ver que a pesar de que greet2 se demora ejecutando un segundo, 
 
 <br>
 
+---
 ## 10. setTimeout, setInterval and requestAnimationFrame
+---
 
 > ### Function Scheduling
 
@@ -808,6 +818,7 @@ Y con esto concluye esta tematica... pero si vemos bien, hay un 3er tema en el t
 <br>
 
 ## 11. Javascript Engines
+---
 
 JavaScript es un lenguaje dinamico e interpretado, lo que significa que de alguna manera se tiene que pasar el codigo a la maquina, por lo que este depende de los diferentes Engines que existen en para el mismo, Engines como: 
 
@@ -861,8 +872,8 @@ Una cosa que vale la pena mencionar es que como en V8 existen entornos de ejecuc
 <br>
 
 ---
- ## 12. Bitwise Operators, Typed Arrays and Array Buffers
-<br>
+## 12. Bitwise Operators, Typed Arrays and Array Buffers
+---
 
 > ### Bitwise Operators
 
@@ -898,6 +909,7 @@ La API de Array Buffer de JavaScript proporciona métodos para crear, manipular 
 
 ---
 ## 13. DOM and Layout Trees
+---
 
 > ### Document Object Model
 El Document Object Model tambien conocido como DOM, es en teoría, una API para HTML, este mismo facilita una visualización de el documento haciendo una representación de el documento, el root element, los distintos elements, sus atributos y valores en una tabla sencilla de ver, tambien define el como distintos programas pueden acceder a cada elemento, su estructura, su contenido e incluso su estilo con JavaScript
@@ -922,6 +934,7 @@ Imagen de ejemplo:
 
 ---
 ## 14. Factories and Classes
+---
 
 > ### Classes
 Aquí ya entramos a territorio de POO (Programación Orientada a Objetos), por lo que las Classes y las Factory Functions van a ser demasiado importantes, ya que nos permiten tener una "plantilla" para crear objetos, lo que nos deja tener una estructura reutilizable y escalable a largo plazo.
@@ -985,3 +998,127 @@ model1.startEngine()  // 'v r o o m'
 Tecnicamente ya terminamos la comprensión de la tematica basica, pero me gustaría añadar una cosa muy importante: `La diferencia verdadera entre class y las Factory Functions es que las clases generan PLANTILLAS de objetos, pero las funciones DEVUELVEN el objeto, son cosas distintas.`
 
 <br>
+
+## 15. this, call, apply and bind
+---
+<br>
+
+> ### this
+
+this es cosa seria, tiene la fama de ser una de las cosas más mágicas (de la mala manera) en Javascript, ya que muchas veces es impredecible y no es muy "beginner friendly".
+
+this es como se le llama en el mundo de la programación a el contexto de un objeto (el objeto en el que se encuentra), pudiendo ser en un metodo, o en un constructor, pero en Javascript se comporta un poco distinto a otros lenguajes, y tiene diferencias en su funcionamiento cuando se encuentra en `strict mode`. Normalmente una this es determinado en como una función es llamada...
+
+Pero dejame explico un poco mejor como funcionan las funciones:
+Existen 3 tipos de funciones:
+- Normal Functions
+- Arrow Functions
+- Bound Functions
+```js
+/* Normal Functions */
+// Declaration
+function fnDeclarationExample() {
+  ...
+}
+
+// Expression
+const fnExpressionExample = function() {
+  ...
+}
+
+// Constructor - Porqué usarias este?? XD
+const fnConstructorExample = new Function('...')
+```
+<br>
+
+```js
+/* Arrow Functions */
+// Solo hay expresiones
+const arrowFunctionExample = () => {
+  ...
+}
+```
+<br>
+
+```js
+/* Bound Functions */
+// Se crea llamando a Function.prototype.bind en una función normal
+const boundFunctionExample = fnDeclarationExample.bind(...)
+```
+<br>
+
+Y tambien existen 2 maneras de llamar a una función:
+- Implicitamente (Llamada directa)
+- Explicitamente
+
+```js
+/* Implicit */
+fnDeclarationExample()
+
+// O lo puedes poner en un objeto
+const objExample = {}
+
+obj.fn = arrowFunctionExample
+obj.fn()
+```
+<br>
+
+```js
+/* Explicit */
+// Aqui se pone un poquito más complicado
+
+// Function.prototype.call
+fnDeclarationExample.call(...)
+
+// Function.prototype.apply
+fnDeclarationExample.apply(...)
+```
+<br>
+
+Con esto, nos quedarían 6 escenarios posibles:
+- Normal Functions + Implicit Call
+- Normal Functions + Explicit Call
+- Arrow Functions + Implicit Call
+- Arrow Functions + Explicit Call
+- Bound Functions + Implicit Call
+- Bound Functions + Explicit Call
+<br>
+
+Y pueden parecer muchos, pero hay un pequeño detalle que nos salvará la vida, ni a las arrow functions, ni a las bound functions les importa el como sean llamadas, por lo que pasaría a ser así:
+- Normal Functions + Implicit Call
+- Normal Functions + Explicit Call
+- Arrow Functions
+- Bound Functions
+<br>
+
+Ahora tenemos que encontrar a que se refiere this, con está imagen lo podremos tener más claro:
+<br>
+
+<img src='https://res.cloudinary.com/practicaldev/image/fetch/s--UEIp_Vxd--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/jbon851k9easj5ot8tte.png'>
+
+<br>
+
+Y como ultimatúm para este tema, un ultimo ejemplo:
+```js
+const magic = function() {
+    console.log(this)  // undefined
+    // El contexto en el que está no da más información
+
+    const cool = () => {
+        console.log(this) // undefined
+        // Toma el contexto de el padre
+    }
+    cool()
+}
+
+magic()
+```
+<br>
+
+> ### Apply, Call, Bind methods
+***Apply & Call***
+
+Empecemos con Apply y Call, que son 2 metodos de Function.prototype y que funcionan practicamente igual, siendo usados frecuentemente para darle un valor explicito a `this`, aunque tambien se puede para efectuar el "method borrowing".
+
+En la otra mano tenemos a ***Bind***, que es usado para para dar un valor explicito a `this` (pero en metodos, no en el contexto como tal), y tambien para hacer [Currying](https://yeisondaza.com/currying-en-javascript-funciones-con-superpoderes) en funciones.
+
