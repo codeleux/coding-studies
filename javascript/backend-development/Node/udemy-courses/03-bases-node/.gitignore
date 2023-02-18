@@ -1,2 +1,5 @@
 # Se ignoran los modulos descargables
-node_modules
+node_modules/
+
+# Se ignoran los outputs
+output/*.txt
