@@ -1,0 +1,104 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+/* Globales */
+
+a {
+    text-decoration: none;;
+    color: #000;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+} 
+
+.contenedor {
+    max-width: 120rem;
+    margin-inline: auto;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', sans-serif;
+    margin: 0 0 5rem 0;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 2rem;
+} 
+
+/* Header y Navegaciones */
+.nombre-sitio {
+    margin: 2.7rem 2.7rem;
+    text-align: center;
+}
+
+.nombre-sitio span {
+    color: #037bc0;
+}
+
+.contenedor-navegacion {
+    border-top: .1rem solid #e1e1e1;
+}
+
+.nav-principal {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.hero {
+    background-image: url(../img/principal.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 45rem;
+}
+
+/* Categorias */
+.categoria a {
+    display: block;
+    text-align: center;
+    padding: 2rem;
+    font-size: 2rem;
+}
+
+.categoria a:hover {
+    background-color: #037bc0;
+    color: #fff;
+    border-bottom-right-radius: 1rem;
+}
+
+.categorias {
+    padding-top: 3.5rem;
+}
+
+.categorias h2 {
+    text-align: center;
+}
+
+.listado-categorias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
