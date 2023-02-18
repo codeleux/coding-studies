@@ -1,6 +1,6 @@
 {
   "name": "03-bases-node",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Tabla de multiplicar que crea un archivo de texto",
   "main": "app.js",
   "scripts": {
@@ -9,6 +9,7 @@
   "author": "Jose Arroyave",
   "license": "MIT",
   "dependencies": {
-    "colors": "^1.4.0"
+    "colors": "^1.4.0",
+    "yargs": "^17.7.0"
   }
 }

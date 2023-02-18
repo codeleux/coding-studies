@@ -1,12 +1,14 @@
 const { createDocument } = require('./helpers/multiply');
+const argv = require('./config/yargs');
+
+require('colors')
 
 console.clear();
 
-const [ , , arg3 = 'base=5' ] = process.argv;
-const [ , base = 5 ] = arg3.split('=');
 
-// const base = 5;
+console.log(argv);
 
-createDocument(base)
-    .then(docName => console.log(docName, 'ha sido creado!'))
-    .catch(err => console.log(err));
+
+createDocument(argv.b, argv.l, argv.u, argv)
+    .then(docName => console.log(`${docName} ha sido creado!`.green))
+    .catch(err => console.log(`${err}`.red));
